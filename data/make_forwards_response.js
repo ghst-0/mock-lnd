@@ -4,7 +4,7 @@
     offset: <Paging Offset Number>
   }
 */
-module.exports = args => {
+export default args => {
   // Exit early when paging
   if (args.offset !== 0) {
     return {forwarding_events: [], last_offset_index: '1'};

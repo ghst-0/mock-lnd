@@ -1,19 +1,21 @@
-const makeBlocksSubscription = require('./make_blocks_subscription');
-const {makeChainFeeRateResponse} = require('./../data');
-const makeForwardsResponse = require('./../data/make_forwards_response');
-const {makeFundPsbtResponse} = require('./../data');
-const {makeGetChainTxResponse} = require('./../data');
-const {makeGetChannelsResponse} = require('./../data');
-const {makeGetPendingChanResponse} = require('./../data');
-const {makeGetUtxosResponse} = require('./../data');
-const makeInvoice = require('./../data/make_invoice');
-const makeInvoiceSubscription = require('./make_invoice_subscription');
-const makePaySubscription = require('./make_pay_subscription');
-const {makePayViaRoutesResponse} = require('./../data');
-const {makeRoutesResponse} = require('./../data');
-const {makeSignPsbtResponse} = require('./../data');
-const {makeWalletInfoResponse} = require('./../data');
-const {makeWalletVersionResponse} = require('./../data');
+import makeBlocksSubscription from './make_blocks_subscription.js';
+import {
+  makeChainFeeRateResponse,
+  makeFundPsbtResponse,
+  makeGetChainTxResponse,
+  makeGetChannelsResponse,
+  makeGetPendingChanResponse,
+  makeGetUtxosResponse,
+  makePayViaRoutesResponse,
+  makeRoutesResponse,
+  makeSignPsbtResponse,
+  makeWalletInfoResponse,
+  makeWalletVersionResponse
+} from './../data/index.js';
+import makeForwardsResponse from './../data/make_forwards_response.js';
+import makeInvoice from './../data/make_invoice.js';
+import makeInvoiceSubscription from './make_invoice_subscription.js';
+import makePaySubscription from './make_pay_subscription.js';
 
 const bufAsHex = buf => buf.toString('hex');
 
@@ -66,7 +68,7 @@ const bufAsHex = buf => buf.toString('hex');
     }
   }
 */
-module.exports = overrides => {
+export default overrides => {
   return {
     chain: {
       registerBlockEpochNtfn: ({}) => {
@@ -79,7 +81,7 @@ module.exports = overrides => {
       },
       forwardingHistory: (args, cbk) => {
         // Exit early when there is a custom forwards response
-        if (!!overrides.getForwards) {
+        if (overrides.getForwards) {
           return overrides.getForwards({offset: args.index_offset}, cbk);
         }
 
@@ -90,7 +92,7 @@ module.exports = overrides => {
       },
       getTransactions: ({}, cbk) => {
         // Exit early when there is a custom transactions response
-        if (!!overrides.getChainTransactions) {
+        if (overrides.getChainTransactions) {
           return overrides.getChainTransactions({}, cbk);
         }
 
@@ -98,7 +100,7 @@ module.exports = overrides => {
       },
       listChannels: ({}, cbk) => {
         // Exit early when there is a custom channels response
-        if (!!overrides.getChannels) {
+        if (overrides.getChannels) {
           return overrides.getChannels({}, cbk);
         }
 
@@ -109,7 +111,7 @@ module.exports = overrides => {
       },
       lookupInvoice: (args, cbk) => {
         // Exit early when there is a custom invoice response
-        if (!!overrides.getInvoice) {
+        if (overrides.getInvoice) {
           return overrides.getInvoice({id: bufAsHex(args.r_hash)}, cbk);
         }
 
@@ -125,7 +127,7 @@ module.exports = overrides => {
     invoices: {
       subscribeSingleInvoice: ({}) => {
         // Exit early when there is a custom invoice subscription
-        if (!!overrides.subscribeToInvoice) {
+        if (overrides.subscribeToInvoice) {
           return overrides.subscribeToInvoice;
         }
 
@@ -135,7 +137,7 @@ module.exports = overrides => {
     router: {
       sendPaymentV2: ({}) => {
         // Exit early when there is a custom payment subscription
-        if (!!overrides.subscribeToPay) {
+        if (overrides.subscribeToPay) {
           return overrides.subscribeToPay;
         }
 
@@ -143,7 +145,7 @@ module.exports = overrides => {
       },
       sendToRoute: (args, cbk) => {
         // Exit early when overriding the send to route
-        if (!!overrides.payViaRoutes) {
+        if (overrides.payViaRoutes) {
           return overrides.payViaRoutes(args, cbk);
         }
 
@@ -151,7 +153,7 @@ module.exports = overrides => {
       },
       sendToRouteV2: (args, cbk) => {
         // Exit early when overriding the send to route
-        if (!!overrides.payViaRoutes) {
+        if (overrides.payViaRoutes) {
           return overrides.payViaRoutes(args, cbk);
         }
 
@@ -160,7 +162,7 @@ module.exports = overrides => {
     },
     version: {
       getVersion: ({}, cbk) => {
-        if (!!overrides.getWalletVersion) {
+        if (overrides.getWalletVersion) {
           return overrides.getWalletVersion({}, cbk);
         }
 
@@ -172,14 +174,14 @@ module.exports = overrides => {
         return cbk(null, makeChainFeeRateResponse({}));
       },
       finalizePsbt: (args, cbk) => {
-        if (!!overrides.signPsbt) {
+        if (overrides.signPsbt) {
           return overrides.signPsbt({}, cbk);
         }
 
         return cbk(null, makeSignPsbtResponse({}));
       },
       fundPsbt: (args, cbk) => {
-        if (!!overrides.fundPsbt) {
+        if (overrides.fundPsbt) {
           return overrides.fundPsbt({}, cbk);
         }
 
@@ -187,7 +189,7 @@ module.exports = overrides => {
       },
       listUnspent: ({}, cbk) => {
         // Exit early when there is a custom utxos response
-        if (!!overrides.getUtxos) {
+        if (overrides.getUtxos) {
           return overrides.getUtxos({}, cbk);
         }
 

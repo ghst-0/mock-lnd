@@ -1,5 +1,5 @@
 const defaultDescHash = Buffer.alloc(0);
-const hexAsBuf = hex => !!hex ? Buffer.from(hex, 'hex') : undefined;
+const hexAsBuf = hex => hex ? Buffer.from(hex, 'hex') : undefined;
 
 /** Lookup invoice mock response
 
@@ -64,7 +64,7 @@ const hexAsBuf = hex => !!hex ? Buffer.from(hex, 'hex') : undefined;
     value_msat: <Milliltokens Value String>
   }
 */
-module.exports = args => {
+export default args => {
   return {
     add_index: '1',
     amt_paid_msat: '1000',
@@ -86,7 +86,7 @@ module.exports = args => {
 
           type.writeBigInt64LE(BigInt(message.type));
 
-          const attribute = Array(...type).map(n => String.fromCharCode(n));
+          const attribute = Array(...type).map(n => String.fromCodePoint(n));
 
           sum[attribute.join('')] = hexAsBuf(message.value);
 
@@ -111,7 +111,7 @@ module.exports = args => {
     settle_date: '1',
     settle_index: 1,
     settled: !!args.is_confirmed,
-    state: !!args.is_confirmed ? 'SETTLED' : 'CANCELED',
+    state: args.is_confirmed ? 'SETTLED' : 'CANCELED',
     value: '1',
     value_msat: '1000',
   };

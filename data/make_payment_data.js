@@ -7,7 +7,7 @@
   @returns
   <Payment Object>
 */
-module.exports = ({htlcs}) => {
+export default ({htlcs}) => {
   const data = {
     creation_date: '1',
     creation_time_ns: '0',
@@ -70,7 +70,7 @@ module.exports = ({htlcs}) => {
     value_sat: '1',
   };
 
-  if (!!htlcs) {
+  if (htlcs) {
     data.htlcs = htlcs;
   }
 

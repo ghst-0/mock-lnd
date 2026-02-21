@@ -1,6 +1,5 @@
-const EventEmitter = require('events');
-
-const makePaymentData = require('./../data/make_payment_data');
+import EventEmitter from 'node:events';
+import makePaymentData from './../data/make_payment_data.js';
 
 const {nextTick} = process;
 
@@ -13,7 +12,7 @@ const {nextTick} = process;
   @returns
   <EventEmitter Object>
 */
-module.exports = ({payment}) => {
+export default ({payment}) => {
   const data = makePaymentData({});
   const emitter = new EventEmitter();
 

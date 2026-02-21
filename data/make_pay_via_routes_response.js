@@ -7,9 +7,9 @@
   @returns
   <Paid Via Routes Response Object>
 */
-module.exports = args => {
+export default args => {
   // Exit early when this is an unknown failure response
-  if (!!args.is_unknown_failure) {
+  if (args.is_unknown_failure) {
     return {
       attempt_id: '1',
       attempt_time_ns: '1',

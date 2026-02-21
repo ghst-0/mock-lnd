@@ -5,7 +5,7 @@
   @returns
   <ListChannels Response Object>
 */
-module.exports = ({}) => {
+export default ({}) => {
   return {
     channels: [{
       active: true,

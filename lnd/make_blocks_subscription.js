@@ -1,4 +1,4 @@
-const EventEmitter = require('events');
+import EventEmitter from 'node:events';
 
 const {nextTick} = process;
 
@@ -11,7 +11,7 @@ const {nextTick} = process;
   @returns
   <EventEmitter Object>
 */
-module.exports = ({invoice}) => {
+export default ({invoice}) => {
   const data = {hash: Buffer.alloc(32), height: 1};
   const emitter = new EventEmitter();
 

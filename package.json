@@ -9,6 +9,7 @@
   "dependencies": {
     "invoices": "3.0.0"
   },
+  "type": "module",
   "description": "Mock LND gRPC Object for unit testing",
   "engines": {
     "node": ">=18"

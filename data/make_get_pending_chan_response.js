@@ -5,7 +5,7 @@
   @returns
   <PendingChannels Response Object>
 */
-module.exports = ({}) => {
+export default ({}) => {
   return {
     pending_force_closing_channels: [],
     pending_open_channels: [],

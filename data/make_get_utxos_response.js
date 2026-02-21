@@ -5,7 +5,7 @@
   @returns
   <ListUnspent Response Object>
 */
-module.exports = ({}) => {
+export default ({}) => {
   return {
     utxos: [{
       address: 'bc1zw508d6qejxtdg4y5r3zarvaryvg6kdaj',

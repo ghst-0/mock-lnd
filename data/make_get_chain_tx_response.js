@@ -5,7 +5,7 @@
   @returns
   <GetTransactions Response Object>
 */
-module.exports = ({}) => {
+export default ({}) => {
   return {
     transactions: [{
       amount: '1',

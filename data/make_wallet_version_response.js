@@ -7,7 +7,7 @@
   @returns
   <GetVersion Response Object>
 */
-module.exports = ({hash}) => {
+export default ({hash}) => {
   return {
     app_minor: 1,
     app_patch: 1,

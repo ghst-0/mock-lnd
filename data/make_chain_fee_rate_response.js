@@ -5,6 +5,6 @@
   @returns
   <Chain Fee Estimate Response Object>
 */
-module.exports = ({}) => {
+export default ({}) => {
   return {sat_per_kw: '250'};
 };

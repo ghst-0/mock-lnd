@@ -1,14 +1,19 @@
-const {makeForwardsResponse} = require('./data');
-const {makeInvoice} = require('./data');
-const {makeInvoiceSubscription} = require('./lnd');
-const {makeLnd} = require('./lnd');
-const {makePaySubscription} = require('./lnd');
-const {makePayViaRoutesResponse} = require('./data');
-const {makePaymentData} = require('./data');
-const {makePaymentRequest} = require('./data');
-const {makeWalletVersionResponse} = require('./data');
+import {
+  makeForwardsResponse,
+  makeInvoice,
+  makePayViaRoutesResponse,
+  makePaymentData,
+  makePaymentRequest,
+  makeWalletVersionResponse
+} from './data/index.js';
+import {
+  makeInvoiceSubscription,
+  makeLnd,
+  makePaySubscription,
+} from './lnd/index.js';
 
-module.exports = {
+
+export {
   makeForwardsResponse,
   makeInvoice,
   makeInvoiceSubscription,

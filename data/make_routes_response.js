@@ -5,7 +5,7 @@
   @returns
   <Query Routes Response Object>
 */
-module.exports = ({}) => {
+export default ({}) => {
   return {
     routes: [{
       hops: [{

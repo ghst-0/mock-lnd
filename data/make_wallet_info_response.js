@@ -5,7 +5,7 @@
   @returns
   <GetInfo Response Object>
 */
-module.exports = ({}) => {
+export default ({}) => {
   return {
     alias: '',
     best_header_timestamp: 1,

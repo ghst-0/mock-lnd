@@ -1,5 +1,5 @@
-const makeInvoiceSubscription = require('./make_invoice_subscription');
-const makeLnd = require('./make_lnd');
-const makePaySubscription = require('./make_pay_subscription');
+import makeInvoiceSubscription from './make_invoice_subscription.js';
+import makeLnd from './make_lnd.js';
+import makePaySubscription from './make_pay_subscription.js';
 
-module.exports = {makeInvoiceSubscription, makeLnd, makePaySubscription};
+export { makeInvoiceSubscription, makeLnd, makePaySubscription };
