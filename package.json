@@ -7,7 +7,7 @@
     "url": "https://github.com/alexbosworth/mock-lnd/issues"
   },
   "dependencies": {
-    "invoices": "5.0.0"
+    "invoices": "workspace:*"
   },
   "type": "module",
   "description": "Mock LND gRPC Object for unit testing",
