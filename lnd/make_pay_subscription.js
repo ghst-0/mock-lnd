@@ -1,5 +1,6 @@
 import EventEmitter from 'node:events';
-import makePaymentData from './../data/make_payment_data.js';
+
+import { makePaymentData } from './../data/make_payment_data.js';
 
 const {nextTick} = process;
 
@@ -12,7 +13,7 @@ const {nextTick} = process;
   @returns
   <EventEmitter Object>
 */
-export default ({payment}) => {
+const makePaySubscription = ({payment}) => {
   const data = makePaymentData({});
   const emitter = new EventEmitter();
 
@@ -20,3 +21,5 @@ export default ({payment}) => {
 
   return emitter;
 };
+
+export { makePaySubscription }

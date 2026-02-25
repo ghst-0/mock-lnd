@@ -7,7 +7,7 @@ const psbt = '70736274ff01009a020000000258e87a21b56daf0c23be8e7070456c336f7cbaa5
   @returns
   <FundPsbt Response Object>
 */
-export default ({}) => {
+const makeFundPsbtResponse = ({}) => {
   return {
     change_output_index: 0,
     funded_psbt: Buffer.from(psbt, 'hex'),
@@ -21,3 +21,5 @@ export default ({}) => {
     }],
   };
 };
+
+export { makeFundPsbtResponse }

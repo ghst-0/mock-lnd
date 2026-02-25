@@ -7,7 +7,7 @@
   @returns
   <GetVersion Response Object>
 */
-export default ({hash}) => {
+const makeWalletVersionResponse = ({hash}) => {
   return {
     app_minor: 1,
     app_patch: 1,
@@ -15,3 +15,5 @@ export default ({hash}) => {
     commit_hash: hash || Buffer.alloc(20).toString('hex'),
   };
 };
+
+export { makeWalletVersionResponse }

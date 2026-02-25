@@ -5,7 +5,7 @@
   @returns
   <Query Routes Response Object>
 */
-export default ({}) => {
+const makeRoutesResponse = ({}) => {
   return {
     routes: [{
       hops: [{
@@ -26,3 +26,5 @@ export default ({}) => {
     success_prob: 1,
   };
 };
+
+export { makeRoutesResponse }

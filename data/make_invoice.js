@@ -64,7 +64,7 @@ const hexAsBuf = hex => hex ? Buffer.from(hex, 'hex') : undefined;
     value_msat: <Milliltokens Value String>
   }
 */
-export default args => {
+const makeInvoice = args => {
   return {
     add_index: '1',
     amt_paid_msat: '1000',
@@ -116,3 +116,5 @@ export default args => {
     value_msat: '1000',
   };
 };
+
+export { makeInvoice }

@@ -5,7 +5,7 @@
   @returns
   <GetTransactions Response Object>
 */
-export default ({}) => {
+const makeGetChainTxResponse = ({}) => {
   return {
     transactions: [{
       amount: '1',
@@ -20,3 +20,5 @@ export default ({}) => {
     }],
   };
 };
+
+export { makeGetChainTxResponse }

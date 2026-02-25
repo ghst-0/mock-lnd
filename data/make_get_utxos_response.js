@@ -5,7 +5,7 @@
   @returns
   <ListUnspent Response Object>
 */
-export default ({}) => {
+const makeGetUtxosResponse = ({}) => {
   return {
     utxos: [{
       address: 'bc1zw508d6qejxtdg4y5r3zarvaryvg6kdaj',
@@ -26,3 +26,5 @@ export default ({}) => {
     }],
   };
 };
+
+export { makeGetUtxosResponse }

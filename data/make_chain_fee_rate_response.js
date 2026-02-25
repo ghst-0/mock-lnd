@@ -5,6 +5,8 @@
   @returns
   <Chain Fee Estimate Response Object>
 */
-export default ({}) => {
+const makeChainFeeRateResponse = ({}) => {
   return {sat_per_kw: '250'};
 };
+
+export { makeChainFeeRateResponse }

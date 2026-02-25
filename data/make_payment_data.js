@@ -7,7 +7,7 @@
   @returns
   <Payment Object>
 */
-export default ({htlcs}) => {
+const makePaymentData = ({htlcs}) => {
   const data = {
     creation_date: '1',
     creation_time_ns: '0',
@@ -76,3 +76,5 @@ export default ({htlcs}) => {
 
   return data;
 };
+
+export { makePaymentData }

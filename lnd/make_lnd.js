@@ -1,21 +1,19 @@
-import makeBlocksSubscription from './make_blocks_subscription.js';
-import {
-  makeChainFeeRateResponse,
-  makeFundPsbtResponse,
-  makeGetChainTxResponse,
-  makeGetChannelsResponse,
-  makeGetPendingChanResponse,
-  makeGetUtxosResponse,
-  makePayViaRoutesResponse,
-  makeRoutesResponse,
-  makeSignPsbtResponse,
-  makeWalletInfoResponse,
-  makeWalletVersionResponse
-} from './../data/index.js';
-import makeForwardsResponse from './../data/make_forwards_response.js';
-import makeInvoice from './../data/make_invoice.js';
-import makeInvoiceSubscription from './make_invoice_subscription.js';
-import makePaySubscription from './make_pay_subscription.js';
+import { makeBlocksSubscription } from './make_blocks_subscription.js';
+import { makeChainFeeRateResponse } from './../data/make_chain_fee_rate_response.js';
+import { makeFundPsbtResponse } from './../data/make_fund_psbt_response.js';
+import { makeGetChainTxResponse } from './../data/make_get_chain_tx_response.js';
+import { makeGetChannelsResponse } from './../data/make_get_channels_response.js';
+import { makeGetPendingChanResponse } from './../data/make_get_pending_chan_response.js';
+import { makeGetUtxosResponse } from './../data/make_get_utxos_response.js';
+import { makePayViaRoutesResponse } from './../data/make_pay_via_routes_response.js';
+import { makeRoutesResponse } from './../data/make_routes_response.js';
+import { makeSignPsbtResponse } from './../data/make_sign_psbt_response.js';
+import { makeWalletInfoResponse } from './../data/make_wallet_info_response.js';
+import { makeWalletVersionResponse } from './../data/make_wallet_version_response.js';
+import { makeForwardsResponse } from './../data/make_forwards_response.js';
+import { makeInvoice } from './../data/make_invoice.js';
+import { makeInvoiceSubscription } from './make_invoice_subscription.js';
+import { makePaySubscription } from './make_pay_subscription.js';
 
 const bufAsHex = buf => buf.toString('hex');
 
@@ -68,7 +66,7 @@ const bufAsHex = buf => buf.toString('hex');
     }
   }
 */
-export default overrides => {
+const makeLnd = overrides => {
   return {
     chain: {
       registerBlockEpochNtfn: ({}) => {
@@ -199,3 +197,5 @@ export default overrides => {
     },
   };
 };
+
+export { makeLnd }

@@ -4,7 +4,7 @@
     offset: <Paging Offset Number>
   }
 */
-export default args => {
+const makeForwardsResponse = args => {
   // Exit early when paging
   if (args.offset !== 0) {
     return {forwarding_events: [], last_offset_index: '1'};
@@ -26,3 +26,5 @@ export default args => {
     last_offset_index: '1',
   };
 };
+
+export { makeForwardsResponse }

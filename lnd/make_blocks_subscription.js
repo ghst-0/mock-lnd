@@ -11,7 +11,7 @@ const {nextTick} = process;
   @returns
   <EventEmitter Object>
 */
-export default ({invoice}) => {
+const makeBlocksSubscription = ({invoice}) => {
   const data = {hash: Buffer.alloc(32), height: 1};
   const emitter = new EventEmitter();
 
@@ -20,3 +20,5 @@ export default ({invoice}) => {
 
   return emitter;
 };
+
+export { makeBlocksSubscription }

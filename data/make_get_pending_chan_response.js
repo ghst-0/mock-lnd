@@ -5,10 +5,12 @@
   @returns
   <PendingChannels Response Object>
 */
-export default ({}) => {
+const makeGetPendingChanResponse = ({}) => {
   return {
     pending_force_closing_channels: [],
     pending_open_channels: [],
     waiting_close_channels: [],
   };
 };
+
+export { makeGetPendingChanResponse }

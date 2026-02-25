@@ -7,7 +7,7 @@
   @returns
   <Paid Via Routes Response Object>
 */
-export default args => {
+const makePayViaRoutesResponse = args => {
   // Exit early when this is an unknown failure response
   if (args.is_unknown_failure) {
     return {
@@ -62,3 +62,5 @@ export default args => {
     status: 'SUCCEEDED',
   };
 };
+
+export { makePayViaRoutesResponse }

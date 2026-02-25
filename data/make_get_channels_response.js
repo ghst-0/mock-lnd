@@ -5,7 +5,7 @@
   @returns
   <ListChannels Response Object>
 */
-export default ({}) => {
+const makeGetChannelsResponse = ({}) => {
   return {
     channels: [{
       active: true,
@@ -57,3 +57,5 @@ export default ({}) => {
     }],
   };
 };
+
+export { makeGetChannelsResponse }

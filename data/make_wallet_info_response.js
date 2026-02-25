@@ -5,7 +5,7 @@
   @returns
   <GetInfo Response Object>
 */
-export default ({}) => {
+const makeWalletInfoResponse = ({}) => {
   return {
     alias: '',
     best_header_timestamp: 1,
@@ -23,3 +23,5 @@ export default ({}) => {
     version: '',
   };
 };
+
+export { makeWalletInfoResponse }

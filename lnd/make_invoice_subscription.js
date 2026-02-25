@@ -1,5 +1,6 @@
 import EventEmitter from 'node:events';
-import makeInvoice from './../data/make_invoice.js';
+
+import { makeInvoice } from './../data/make_invoice.js';
 
 const {nextTick} = process;
 
@@ -12,7 +13,7 @@ const {nextTick} = process;
   @returns
   <EventEmitter Object>
 */
-export default ({invoice}) => {
+const makeInvoiceSubscription = ({invoice}) => {
   const data = makeInvoice({});
   const emitter = new EventEmitter();
 
@@ -27,3 +28,5 @@ export default ({invoice}) => {
 
   return emitter;
 };
+
+export { makeInvoiceSubscription }
